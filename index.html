@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UG Scholarships India - Latest (Oct 2026)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; color: white; padding: 40px 20px; background: rgba(0,0,0,0.2); border-radius: 15px; margin-bottom: 30px; }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.2em; opacity: 0.9; }
+        .search-bar { margin: 20px 0; text-align: center; }
+        .search-bar input { width: 100%; max-width: 500px; padding: 12px 20px; border: none; border-radius: 25px; font-size: 1em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .scholarship-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+        .card h2 { color: #5a2d82; margin-bottom: 15px; font-size: 1.4em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .amount { font-size: 1.3em; font-weight: bold; color: #28a745; margin: 10px 0; }
+        .deadline { background: #ff6b6b; color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; font-weight: bold; margin: 10px 0; }
+        .eligibility { margin-top: 15px; }
+        .eligibility h3 { color: #333; margin-bottom: 8px; }
+        .eligibility ul { padding-left: 20px; }
+        .eligibility li { margin-bottom: 5px; }
+        .source { font-size: 0.85em; color: #666; margin-top: 15px; font-style: italic; }
+        footer { text-align: center; color: white; margin-top: 40px; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 15px; }
+        .note { background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; color: #333; }
+        @media (max-width: 768px) { .scholarship-grid { grid-template-columns: 1fr; } header h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Undergraduate Scholarships in India</h1>
+            <p>Published / Highlighted in the Last 7 Days (as of 25 October 2026)</p>
+        </header>
+        <div class="note">
+            <strong>Disclaimer:</strong> Details compiled from recent news articles (The Hindu, Organiser, etc.) and Buddy4Study listings. Always verify eligibility, amounts, and deadlines on the official website before applying. Deadlines are approaching soon for many!
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="🔍 Search scholarships by name, amount, or eligibility..." onkeyup="filterScholarships()">
+        </div>
+        <div class="scholarship-grid" id="scholarshipGrid">
+            <!-- Cards will be populated by JS or static -->
+        </div>
+        <footer>
+            <p>Data as of 25 October 2026 | Built as a simple interactive HTML app | Always check official sources</p>
+            <p>Sources include The Hindu (24-25 Oct), Organiser, Buddy4Study, and related education portals.</p>
+        </footer>
+    </div>
+
+    <script>
+        const scholarships = [
+            {
+                name: "Sakal India Foundation Career Development Scholarship",
+                amount: "Up to ₹10,000 (₹8,000 for Graduation)",
+                deadline: "31 October 2026",
+                eligibility: [
+                    "Resident of India",
+                    "Completed at least Class 10",
+                    "Valid admission letter to a recognized institution",
+                    "Minimum 85% aggregate in the previous class",
+                    "Family income proof required"
+                ],
+                source: "Highlighted in The Hindu (25 Oct 2026) and recent articles"
+            },
+            {
+                name: "Satya Scholarship Program 2026 (Medical & Health Sciences)",
+                amount: "100% annual course fee for entire duration + hostel, accommodation & meals",
+                deadline: "31 October 2026",
+                eligibility: [
+                    "First-year students in 3-5 year UG or integrated Master's in Medical & Health Sciences (MBBS, BDS, BPT, B.Sc. Nursing, B.Sc. Allied & Healthcare)",
+                    "Students from Punjab admitted to selected institutes in Ludhiana OR Ludhiana district students in top NIRF-ranked medical institutes",
+                    "Minimum 60% in Class 12",
+                    "Annual parental income ≤ ₹8 lakh",
+                    "Indian citizen, not receiving another educational scholarship",
+                    "Preference for girls, sportspersons, PwD, orphans, children of single parents"
+                ],
+                source: "Highlighted in Organiser and Buddy4Study (mid-late Oct 2026)"
+            },
+            {
+                name: "HDFC Bank Parivartan ECSS Programme 2026-27 (Undergraduate)",
+                amount: "₹30,000 (General UG) / ₹50,000 (Professional UG)",
+                deadline: "31 October 2026",
+                eligibility: [
+                    "Enrolled in full-time undergraduate programme (general or professional) at a recognized institution in India",
+                    "Minimum 55% marks in the latest qualifying examination",
+                    "Annual family income ≤ ₹2.5 lakh from all sources",
+                    "Indian national",
+                    "Preference for students who faced a personal or family crisis in the last 3 years affecting education"
+                ],
+                source: "Recently highlighted in multiple education portals (Oct 2026)"
+            },
+            {
+                name: "GEV Memorial Merit Scholarship for Law Students 2026-27",
+                amount: "₹50,000 to ₹2,00,000 per year + mentorship opportunities",
+                deadline: "31 October 2026",
+                eligibility: [
+                    "Indian citizen",
+                    "Pursuing LL.B. or LL.M. in India, or appearing for CLAT, LSAT-India, AILET or other law entrance exams",
+                    "Minimum 60% marks in both Class 10 and Class 12",
+                    "Annual family income up to ₹10 lakh",
+                    "Willingness to participate in mentorship programmes"
+                ],
+                source: "Highlighted in recent articles around Oct 2026"
+            },
+            {
+                name: "Winnie Sun Scholarship 2026-27 (for Female MBBS Students)",
+                amount: "Up to ₹65,000 per year for the duration of the course",
+                deadline: "30 October 2026",
+                eligibility: [
+                    "Indian female student",
+                    "Secured admission to MBBS course for academic year 2026-27",
+                    "Minimum 70% in Class 10 and 12 (60% for SC/ST/OBC)",
+                    "Annual family income less than ₹5 lakh",
+                    "Only students admitted in FY 2026-27 eligible"
+                ],
+                source: "Highlighted in recent education news (Oct 2026)"
+            },
+            {
+                name: "Science Ambassador Scholarship",
+                amount: "$20,000",
+                deadline: "14 December 2026",
+                eligibility: [
+                    "Students of High School or Undergraduate programmes",
+                    "Pursuing or committed to pursuing STEM as their major field of study"
+                ],
+                source: "Listed in The Hindu Scholarships: October 24, 2026"
+            }
+        ];
+
+        function renderScholarships(filtered = scholarships) {
+            const grid = document.getElementById('scholarshipGrid');
+            grid.innerHTML = '';
+            filtered.forEach(sch => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h2>${sch.name}</h2>
+                    <div class="amount">💰 Amount: ${sch.amount}</div>
+                    <div class="deadline">📅 Deadline: ${sch.deadline}</div>
+                    <div class="eligibility">
+                        <h3>Eligibility Criteria:</h3>
+                        <ul>
+                            ${sch.eligibility.map(e => `<li>${e}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="source">Source: ${sch.source}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterScholarships() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = scholarships.filter(sch => 
+                sch.name.toLowerCase().includes(query) ||
+                sch.amount.toLowerCase().includes(query) ||
+                sch.eligibility.some(e => e.toLowerCase().includes(query))
+            );
+            renderScholarships(filtered);
+        }
+
+        // Initial render
+        renderScholarships();
+    </script>
+</body>
+</html>
